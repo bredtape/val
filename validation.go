@@ -94,7 +94,9 @@ func NewChildren(parent string, xs ...*Errors) *Errors {
 func Concat(xs ...*Errors) *Errors {
 	fields := make([]Field, 0)
 	for _, x := range xs {
-		fields = append(fields, x.fields...)
+		if x.Any() {
+			fields = append(fields, x.fields...)
+		}
 	}
 	return FromFields(fields...)
 }

@@ -28,6 +28,22 @@ func TestFields(t *testing.T) {
 			})
 		})
 
+		Convey("Concat nothing", func() {
+			e := Concat()
+
+			Convey("should be nil", func() {
+				So(e, ShouldBeNil)
+			})
+		})
+
+		Convey("Concat nil", func() {
+			e := Concat(nil)
+
+			Convey("should be nil", func() {
+				So(e, ShouldBeNil)
+			})
+		})
+
 		Convey("Concat with other", func() {
 			e2 := New("name2", "desc2")
 
